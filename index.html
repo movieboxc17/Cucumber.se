@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
         const cucumber = document.getElementById('cucumber');
 
         function spinCucumber() {
-            rotationSpeed += 0.2; // Increase rotation speed when clicked
+            rotationSpeed += 0.2; // Increase rotation speed when touched
             cucumber.style.transition = 'transform 0.3s ease-in-out';
             cucumber.style.transform = `rotate(${rotationSpeed}turn)`;
         }
@@ -68,10 +68,9 @@
             }
         }
 
-        cucumber.addEventListener('mousedown', spinCucumber);
-        cucumber.addEventListener('mouseup', stopCucumber);
-        cucumber.addEventListener('mouseleave', stopCucumber);
-        document.addEventListener('mouseup', startCucumber);
+        cucumber.addEventListener('touchstart', spinCucumber);
+        cucumber.addEventListener('touchend', stopCucumber);
+        document.addEventListener('touchend', startCucumber);
     </script>
 </body>
 </html>
