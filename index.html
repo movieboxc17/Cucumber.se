@@ -16,7 +16,7 @@
         #cucumber {
             width: 100px;
             height: 100px;
-            background-image: url('2.png'); /* Replace 'cucumber.png' with the path to your image */
+            background-image: url('2.png'); /* Replace '2.png' with the correct path to your image */
             background-size: cover;
             border-radius: 50%;
             transition: transform 0.3s ease-in-out;
@@ -44,20 +44,20 @@
 
         const cucumber = document.getElementById('cucumber');
 
-        function spinCucumber() {
+        cucumber.addEventListener('touchstart', function() {
             rotationSpeed += 0.2; // Increase rotation speed when touched
             cucumber.style.transition = 'transform 0.3s ease-in-out';
             cucumber.style.transform = `rotate(${rotationSpeed}turn)`;
-        }
+        });
 
-        function stopCucumber() {
+        cucumber.addEventListener('touchend', function() {
             isSpinning = false;
-        }
+        });
 
-        function startCucumber() {
+        document.addEventListener('touchend', function() {
             isSpinning = true;
             animateCucumber();
-        }
+        });
 
         function animateCucumber() {
             if (isSpinning) {
@@ -67,10 +67,6 @@
                 requestAnimationFrame(animateCucumber);
             }
         }
-
-        cucumber.addEventListener('touchstart', spinCucumber);
-        cucumber.addEventListener('touchend', stopCucumber);
-        document.addEventListener('touchend', startCucumber);
     </script>
 </body>
 </html>
